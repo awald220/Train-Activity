@@ -1,3 +1,24 @@
+body {
+    width: 100%;
+  
+}
+
+.topSection {
+    text-align: center;
+    background-color: grey;
+}
+
+
+
 .userInput {
     margin-top: 50px;
+    border: 1px solid #cccccc;
+}
+
+.form-group {
+    padding: 10px;
+}
+
+.form {
+    padding: 10px;
 }
