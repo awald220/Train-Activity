@@ -22,3 +22,20 @@ body {
 .form {
     padding: 10px;
 }
+
+#submit{
+    padding: 10px;
+}
+
+label {
+    padding-bottom: 5px;
+}
+
+.table{
+    border: 1px solid #cccccc;
+}
+
+.card-header{
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
