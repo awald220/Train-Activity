@@ -10,85 +10,78 @@
 </head>
 <body>
 
-   <div class="container">
-    <div class="jumbotron jumbotron-fluid topSection">
-        <div class="container">
-          <h1 class="display-4">Anytime is Train Time</h1>
-          <p class="lead">choo choo. chee chee.</p>
-        </div>
-    </div>
-
-
-    <table class="table">
-        <div class="card-header">
-            Current Train Schedule
-          </div>
-        <thead>
-          <tr>
-            <!-- The scope attribute specifies that this is a header for a column -->
-            <th scope="col">Train Name</th>
-            <th scope="col">Destination</th>
-            <th scope="col">Frequency (min)</th>
-            <th scope="col">Next Arrival</th>
-            <th>Minutes Away</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Polar Express</td>
-            <td>North Pole</td>
-            <td>25</td>
-            <td>3:15PM</td>
-            <td>14</td>
-          </tr>
-          <!-- Insert additional movie rows here -->
-        </tbody>
-      </table>
-
-      <div class="card userInput">
-        <div class="card-header">
-          Add Train
-        </div>
-        <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Train Name</label>
-              <input type="text" class="form-control" id="trainName">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Destination</label>
-              <input type="text" class="form-control" id="destination">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">First Train Time (HH:mm - military time)</label>
-                <input type="text" class="form-control" id="trainTime">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Frequency (min)</label>
-                <input type="text" class="form-control" id="frequency">
-            </div>
-            
-            <div id="submit" >
-            <button type="submit" class="btn btn-primary" id="click-button">Submit</button>
-            </div>
-        </form>
-
-
-      </div>
-
-
-
-
-      
+  <div class="container">
+   <div class="jumbotron jumbotron-fluid topSection">
+       <div class="container">
+         <h1 class="display-4">Anytime is Train Time</h1>
+         <p class="lead">choo choo. chee chee.</p>
+       </div>
    </div>
-   <!--jquery link -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <!-- core firebase link -->
-  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+   <table class="table">
+       <div class="card-header">
+           Current Train Schedule
+         </div>
+       <thead>
+         <tr>
+           <!-- The scope attribute specifies that this is a header for a column -->
+           <th scope="col">Train Name</th>
+           <th scope="col">Destination</th>
+           <th scope="col">Frequency (min)</th>
+           <th scope="col">Next Arrival</th>
+           <th>Minutes Away</th>
+         </tr>
+       </thead>
+       <tbody>
+         <!-- Insert additional movie rows here -->
+       </tbody>
+     </table>
 
-  <!-- database firebase link-->
-  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-  <!--my js link-->
-  <script type="text/javascript" src="assets/javascript/app.js"></script>
+     <div class="card userInput">
+       <div class="card-header">
+         Add Train
+       </div>
+       <form>
+           <div class="form-group">
+             <label for="exampleInputEmail1">Train Name</label>
+             <input type="text" class="form-control" id="trainName">
+           </div>
+           <div class="form-group">
+             <label for="exampleInputPassword1">Destination</label>
+             <input type="text" class="form-control" id="destination">
+           </div>
+           <div class="form-group">
+               <label for="exampleInputPassword1">First Train Time (HH:mm - military time)</label>
+               <input type="text" class="form-control" id="firstTrain">
+           </div>
+           <div class="form-group">
+               <label for="exampleInputPassword1">Frequency (min)</label>
+               <input type="text" class="form-control" id="interval">
+           </div>
+           
+           <div id="submit" >
+           <button type="submit" class="btn btn-primary" id="click-button">Submit</button>
+           </div>
+       </form>
+
+
+     </div>
+
+
+
+
+     
+  </div>
+  <!--jquery link -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+ <!-- core firebase link -->
+ <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+
+ <!-- database firebase link-->
+ <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+ <!--my js link-->
+ <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
+
 </html>

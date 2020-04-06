@@ -1,3 +1,4 @@
+// $(document).ready(function(){
 var config ={
     apiKey: "AIzaSyCh0oepPxWJWV6wC1ih-bkqJN7w9lAmKc0",
     authDomain: "train-schedule-72429.firebaseapp.com",
@@ -26,55 +27,51 @@ connectedRef.on("value", function(snap) {
     con.onDisconnect().remove();
   }
 });
-// When first loaded or when the connections list changes...
+//When first loaded or when the connections list changes...
 connectionsRef.on("value", function(snap) {
-  // Display the viewer count in the html.
-  // The number of online users is the number of children in the connections list.
-  $("#connected-viewers").text(snap.numChildren());
 });
 
+// Initials Values
+var trainName;
+var destination;
+var trainTime;
+var frequency;
 
-
-// Vars for inputs 
-var trainName = "";
-var destination = "";
-var trainTime = "";
-var frequency = "";
-
-
-// when submit is clicked, gets the info from the form
-$("#click-button").on("click", function(event){
-    //prevent the page from refreshing
-    event.preventDefault();
-
-    trainName = $("#trainName").val().trim();
-    destination = $("#destination").val().trim();
-    trainTime = $("#trainTime").val().trim();
-    frequency = $("#frequency").val().trim();
-
-    database.ref().set({
-        trainName: trainName,
-        destination: destination,
-        trainTime: trainTime,
-        frequency: frequency
-    });
-});
-
+// At the page load and subsequent value changes, get a snapshot of the local data.
+// This function allows you to update your page in real-time when the values within the firebase node bidderData changes
 database.ref().on("value", function(snapshot){
-    //print the initial data to the console
-    console.log(snapshot.val());
+  console.log(snapshot.val());
+  
+  trainName = snapshot.val().trainName;
+  destination = snapshot.val().destination;
+  trainTime = snapshot.val().trainTime;
+  frequency = snapshot.val().frequency;
 
-    //log the value of the various properties
-    console.log(snapshot.val().trainName);
-    console.log(snapshot.val().destination);
-    console.log(snapshot.val().trainTime);
-    console.log(snapshot.val().frequency);
+  var newRow = $("<tr>");
+ $("tbody").append(newRow);
+ var newTrainName = $("<td>").text(trainName);
+ var newDestintion = $("<td>").text(destination);
+ var newTrainTime = $("<td>").text(trainTime);
+ var newFrequency = $("<td>").text(frequency);
+ $(newRow).append(newTrainName, newDestintion, newFrequency, newTrainTime);
 
-    //change the HTML
-
-
-
-    
-}, function(errorObject){
-    console.log("The read failed: " + errorObject.code);
 })
+
+$("#click-button").on("click", function(event){
+  event.preventDefault();
+
+  database.ref("/trainData").set({
+    trainName: trainName,
+    destination: destination,
+    trainTime: trainTime,
+    frequency: frequency
+  });
+
+})
+
+
+
+
+
+
+// }); //document ready 
