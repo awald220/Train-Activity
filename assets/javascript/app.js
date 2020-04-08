@@ -37,10 +37,8 @@ $("#click-button").on("click", function(event){
    $("form")[0].reset();
 })
 
-// At the page load and subsequent value changes, get a snapshot of the local data.
-// This function allows you to update your page in real-time when the values within the firebase node bidderData changes
 database.ref().on("child_added", function(snapshot){
- //print the local data to the console
+  //print the local data to the console
   console.log(snapshot.val())
 
   var sv = snapshot.val()
@@ -51,14 +49,48 @@ database.ref().on("child_added", function(snapshot){
   var trainTime = sv.trainTime;
   var frequency = sv.frequency;
 
-  // add new row when info is inputed to form display on the page 
+  var tFrequency = freq;
+
+  // Time is 3:30 AM
+  var firstTime = time;
+
+  // First Time (pushed back 1 year to make sure it comes before current time)
+  var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+  console.log(firstTimeConverted);
+
+  // Current Time
+  var currentTime = moment();
+  console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+  // Difference between the times
+  var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+  console.log("DIFFERENCE IN TIME: " + diffTime);
+
+  // Time apart (remainder)
+  var tRemainder = diffTime % tFrequency;
+  console.log(tRemainder);
+
+  // Minute Until Train
+  var tMinutesTillTrain = tFrequency - tRemainder;
+  console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+  // Next Train
+  var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+  console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+
+ 
+
+
+  
+  //add new row when info is inputed to form display on the page 
   var newRow = $("<tr>");
  $("tbody").append(newRow);
  var newTrainName = $("<td>").text(sv.name);
  var newDestintion = $("<td>").text(sv.dest);
  var newTrainTime = $("<td>").text(sv.time);
  var newFrequency = $("<td>").text(sv.freq);
- $(newRow).append(newTrainName, newDestintion, newFrequency, newTrainTime);
+ var minuteAway = $("<td>").text(tMinutesTillTrain)
+ $(newRow).append(newTrainName, newDestintion, newFrequency, newTrainTime, minuteAway);
 
 })
 
