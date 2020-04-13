@@ -5,7 +5,9 @@ body {
 
 .topSection {
     text-align: center;
-    background-color: grey;
+    background-color: maroon;
+    color: whitesmoke;
+
 }
 
 
@@ -29,13 +31,27 @@ body {
 
 label {
     padding-bottom: 5px;
+    
 }
 
 .table{
     border: 1px solid #cccccc;
+    background-color: lightgrey;
+    opacity: 80%;
+
 }
 
 .card-header{
     border: 1px solid #cccccc;
     border-radius: 4px;
+    background-color: grey;
+    opacity: 80%;
+    color: black;
+}
+
+.userInput {
+    background-color: lightgrey;
+    opacity: 80%;
+    color: black;
+    margin-bottom: 100px;
 }
