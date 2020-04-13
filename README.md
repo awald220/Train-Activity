@@ -6,4 +6,10 @@
 
 3. when the page is refreshed the info on the table remains
 
-4.
+
+
+# Screenshot Img
+
+<img src="assets/Images/Screen Shot 2020-04-13 at 8.44.14 AM.png"
+     alt="Wireframe Image"
+     style="float: left; margin-right: 10px;" />
