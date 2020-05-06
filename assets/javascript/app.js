@@ -36,7 +36,7 @@ $("#click-button").on("click", function(event){
     });
    $("form")[0].reset();
 
-   alert(name.name + " has been successfully added");
+   alert(name + " has been successfully added");
 })
 
 
